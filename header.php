@@ -133,7 +133,7 @@
 					<li class="nav-item dropdown ml-3">
 						<a class="nav-link dropdown-toggle waves-effect waves-light dark-grey-text font-weight-bold" id="navbarDropdownMenuLink-4" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user blue-text"></i> Profile </a>
 						<div class="dropdown-menu dropdown-menu-right dropdown-cyan" aria-labelledby="navbarDropdownMenuLink-4">
-							<a class="dropdown-item waves-effect waves-light" href="#">My account</a>
+							<a class="dropdown-item waves-effect waves-light" href="account.php">My account</a>
 							<a class="dropdown-item waves-effect waves-light" href="deconnexion.php">Log out</a>
 						</div>
 					</li>
