@@ -97,9 +97,6 @@
 				<li>
 					<a href="contact.php" class="collapsible-header waves-effect"><i class="fas fa-envelope"></i> Contact</a>
 				</li>
-				<li>
-					<a href="search.php" class="collapsible-header waves-effect"><i class="fas fa-search"></i>Rechercher un matériel</a>
-				</li>
 			</ul>
 		</li>
 		<!-- Side navigation links -->
