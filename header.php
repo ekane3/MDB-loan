@@ -80,9 +80,6 @@
 					</div>
 				</li>
 				<li>
-					<a href="contact.html" class="collapsible-header waves-effect"><i class="fas fa-envelope"></i> Contact</a>
-				</li>
-				<li>
 					<a href="<?php echo $href_var;?>" class="collapsible-header waves-effect"><i class="fas fa-barcode"></i> Dashboard </a>
 				</li>
 				<li>
@@ -92,7 +89,16 @@
 					<a href="users.php" class="collapsible-header waves-effect"><i class="fas fa-user"></i> Utilisateurs </a>
 				</li>
                 <li>
-					<a href="loanme.php" class="collapsible-header waves-effect"><i class="fas fa-user"></i>Faire un prêt</a>
+					<a href="loanme.php" class="collapsible-header waves-effect"><i class="fas fa-keyboard"></i>Faire un prêt</a>
+				</li>
+				<li>
+					<a href="account.php" class="collapsible-header waves-effect"><i class="fas fa-user"></i>Account</a>
+				</li>
+				<li>
+					<a href="contact.php" class="collapsible-header waves-effect"><i class="fas fa-envelope"></i> Contact</a>
+				</li>
+				<li>
+					<a href="search.php" class="collapsible-header waves-effect"><i class="fas fa-search"></i>Rechercher un matériel</a>
 				</li>
 			</ul>
 		</li>
