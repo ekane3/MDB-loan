@@ -29,68 +29,23 @@
 		<li>
 			<ul class="collapsible collapsible-accordion">
 				<li>
-					<a class="collapsible-header waves-effect arrow-r">
-						<i class="fas fa-shopping-cart"></i>
-						 Cart page  
-						<i class="fas fa-angle-down rotate-icon"></i>
-					</a>
-					<div class="collapsible-body">
-						<ul>
-							<li><a href="cart-v1.php" class="waves-effect">Cart V.1</a></li>
-						</ul>
-					</div>
-				</li>
-				<li>
-					<a class="collapsible-header waves-effect arrow-r">
-						<i class="far fa-hand-pointer"></i>
-						 Category page  
-						<i class="fas fa-angle-down rotate-icon"></i>
-					</a>
-					<div class="collapsible-body">
-						<ul>
-							<li><a href="category-v3.html" class="waves-effect">Category V.3</a></li>
-						</ul>
-					</div>
-				</li>
-				<li>
-					<a class="collapsible-header waves-effect arrow-r">
-						<i class="far fa-bookmark"></i>
-						 Homepage  
-						<i class="fas fa-angle-down rotate-icon"></i>
-					</a>
-					<div class="collapsible-body">
-						<ul>
-							<li><a href="homepage-v1.php" class="waves-effect">Homepage V.1</a></li>
-							<li><a href="homepage-v2.html" class="waves-effect">Homepage V.2</a></li>
-							<li><a href="homepage-v3.html" class="waves-effect">Homepage V.3</a></li>
-						</ul>
-					</div>
-				</li>
-				<li>
-					<a class="collapsible-header waves-effect arrow-r">
-						<i class="fas fa-camera-retro"></i>
-						 Product page  
-						<i class="fas fa-angle-down rotate-icon"></i>
-					</a>
-					<div class="collapsible-body">
-						<ul>
-							<li><a href="product-v1.html" class="waves-effect">Product V.1</a></li>
-							<li><a href="product-v2.html" class="waves-effect">Product V.2</a></li>
-						</ul>
-					</div>
-				</li>
-				<li>
 					<a href="<?php echo $href_var;?>" class="collapsible-header waves-effect"><i class="fas fa-barcode"></i> Dashboard </a>
 				</li>
 				<li>
 					<a href="materiels.php" class="collapsible-header waves-effect"><i class="fas fa-tools"></i> Matériel </a>
 				</li>
 				<li>
-					<a href="users.php" class="collapsible-header waves-effect"><i class="fas fa-user"></i> Utilisateurs </a>
+					<a href="users.php" class="collapsible-header waves-effect"><i class="fas fa-users"></i> Utilisateurs </a>
 				</li>
-                <li>
-					<a href="loanme.php" class="collapsible-header waves-effect"><i class="fas fa-keyboard"></i>Faire un prêt</a>
-				</li>
+				<?php
+					if($_SESSION['type'] == "etudiant"){
+				?>
+					<li>
+						<a href="loanme.php" class="collapsible-header waves-effect"><i class="fas fa-keyboard"></i>Faire un prêt</a>
+					</li>
+				<?php
+					}
+				?>                
 				<li>
 					<a href="account.php" class="collapsible-header waves-effect"><i class="fas fa-user"></i>Account</a>
 				</li>
@@ -116,15 +71,14 @@
 				<ul class="navbar-nav ml-auto">
                     <?php
                         if($_SESSION["type"]=="etudiant"){
-                            echo '
+                    ?>
                             <li class="nav-item ">
                                 <a class="nav-link dark-grey-text font-weight-bold" href="#" data-toggle="modal" data-target="#cart-modal-ex">
                                     <span class="badge danger-color">4</span>
-                                    <i class="fas fa-shopping-cart blue-text" aria-hidden="true"></i>
                                     <span class="clearfix d-none d-sm-inline-block">loans</span>
                                 </a>
                             </li>
-                            ';
+                    <?php
                         }
 					?>
 					<li class="nav-item ml-3">
