@@ -51,7 +51,9 @@
                             <thead class="thead-inverse">
                                 <tr>
                                     <th></th>
-                                    <th>Noms</th>
+                                    <th>Firstname</th>
+                                    <th>Lastname</th>
+                                    <th>email</th>
                                     <th>Mot de passe</th>
                                     <th>Date de naissance</th>
                                     <th>Type</th>
@@ -66,28 +68,21 @@
                                     
                                     while($data = $requete->fetch()){
                                         echo'<tr>'
-                                                .'<td  scope="row">'.$i.'</td>'
-                                                .'<td>
-                                                    <div class="d-flex px-2 py-1">
-                                                        <div class="d-flex flex-column justify-content-center">
-                                                            <h6 class="mb-0 text-sm">'.$data['lastname'].' '.$data['firstname'].'</h6>
-                                                            <p class="text-xs text-secondary mb-0">
-                                                                '.$data['email'].'
-                                                            </p>
-                                                        </div>
-                                                    </div>
-                                                </td>'
-                                                .'<td  scope="row">'.$data['password'].'</td>'
-                                                .'<td  scope="row">'.$data['birthday'].'</td>'
+                                                .'<td  scope="row">'.$data['id'].'</td>'
+                                                .'<td>'.$data['firstname'].'</td>'
+                                                .'<td>'.$data['lastname'].'</td>'
+                                                .'<td>'.$data['email'].'</td>'
+                                                .'<td>'.$data['password'].'</td>'
+                                                .'<td>'.$data['birthday'].'</td>'
                                                 .'<td>'.$data['type'].'</td>'
                                                 .'<td>
-                                                    <span class="fas fa-edit text-success waves-effect" data-toggle="modal" data-target="#editUser"></span>
+                                                    <span id="edit" class="fas fa-edit text-success waves-effect" data-toggle="modal" data-target="#editUser"></span>
                                                 </td>'
                                                 .'<td>
-                                                    <span class="fas fa-trash text-danger waves-effect" data-toggle="modal" data-target="#deleteUser"></span>
+                                                    <span id="delete" class="fas fa-trash text-danger waves-effect" data-toggle="modal" data-target="#deleteUser"></span>
                                                 </td>'
                                             .'</tr>';
-                                        $i++;
+                                       // $i++;
                                     }    
                                 ?>
                                 </tbody>
@@ -109,7 +104,7 @@
                                 </div>
                                 <!--AddUser Form-->
                                     <form method="post" action="addUserPost.php">
-                                    <!-- Body -->
+                                        <!-- Body -->
                                         <div class="modal-body mb-0">
                                             <div class="md-form form-sm">
                                                 <i class="fas fa-user prefix"></i>
@@ -157,7 +152,7 @@
                         <!-- Modal: Ajouterform -->
 
                         <!--Edit modal-->
-                        <div class="modal fade" id="editUser" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"aria-hidden="true">
+                        <div class="modal fade" id="editUser" role="dialog" >
                             <div class="modal-dialog cascading-modal" role="document">
                                 <!-- Content -->
                                 <div class="modal-content">
@@ -169,40 +164,50 @@
                                     <span aria-hidden="true">&times;</span>
                                     </button>
                                 </div>
-                                <!-- Body -->
-                                    <div class="modal-body mb-0">
-                                        <div class="md-form form-sm">
-                                            <i class="fas fa-user prefix"></i>
-                                            <input type="text" id="form19" class="form-control form-control-sm" name="firstname">
-                                            <label for="form19">Your first name</label>
-                                        </div>
-                                        <div class="md-form form-sm">
-                                            <i class="fas fa-user prefix"></i>
-                                            <input type="text" id="form30" class="form-control form-control-sm" name="lastname">
-                                            <label for="form30">Your last name</label>
-                                        </div>
+                                <!--EditUser Form-->
+                                    <form method="post" action="addUserPost.php">
+                                        <!-- Body -->
+                                        <div class="modal-body mb-0">
+                                            <div class="md-form form-sm">
+                                                <i class="fas fa-user prefix"></i>
+                                                <input type="hidden" id="id" class="form-control form-control-sm" name="id">
+                                                <input type="text" id="firstname" class="form-control form-control-sm" name="firstname">
+                                                <label >Your first name</label>
+                                            </div>
+                                            <div class="md-form form-sm">
+                                                <i class="fas fa-user prefix"></i>
+                                                <input type="text" id="lastname" class="form-control form-control-sm" name="lastname">
+                                                <label for="form30">Your last name</label>
+                                            </div>
 
-                                        <div class="md-form form-sm">
-                                        <i class="fas fa-envelope prefix"></i>
-                                        <input type="email" id="form20" class="form-control form-control-sm" name="email">
-                                        <label for="form20">Your email</label>
-                                        </div>
+                                            <div class="md-form form-sm">
+                                            <i class="fas fa-envelope prefix"></i>
+                                            <input type="email" id="email" class="form-control form-control-sm" name="email">
+                                            <label for="form20">Your email</label>
+                                            </div>
 
-                                        <div class="md-form form-sm">
-                                        <i class="fas fa-envelope prefix"></i>
-                                        <input type="password" id="form40" class="form-control form-control-sm" name="password">
-                                        <label for="form40">Mot de passe</label>
-                                        </div>
+                                            <div class="md-form form-sm">
+                                            <i class="fas fa-envelope prefix"></i>
+                                            <input type="password" id="password" class="form-control form-control-sm" name="password">
+                                            <label for="form40">Mot de passe</label>
+                                            </div>
 
-                                        <div class="md-form form-sm mt-2">
-                                        <i class="fas fa-tag prefix"></i>
-                                        <input type="date" id="form21" class="form-control form-control-sm" >
-                                        </div>
+                                            <div class="md-form form-sm mt-2">
+                                            <i class="fas fa-tag prefix"></i>
+                                            <input type="date" id="birthday" class="form-control form-control-sm" name="birthday" >
+                                            </div>
 
-                                        <div class="text-center mt-1-half">
-                                        <button class="btn btn-info mb-2">Modifier <i class="fas fa-paper-plane ml-1"></i></button>
+                                            <div class="md-form form-sm mt-2">
+                                            <i class="fas fa-tag prefix"></i>
+                                            <input type="text" id="type" class="form-control form-control-sm" name="type" >
+                                            <label >Type d'utilisateur</label>    
+                                            </div>
+
+                                            <div class="text-center mt-1-half">
+                                            <button type="submit" class="btn btn-info mb-2" name="updateUser">Modifier <i class="fas fa-paper-plane ml-1"></i></button>
+                                            </div>
                                         </div>
-                                    </div>
+                                    </form>
                                 </div>
                                 <!-- Content -->
                             </div>
@@ -222,18 +227,21 @@
                                     </div>
 
                                     <!-- Body -->
+                                    <form action="addUserPost.php" method="post">
                                     <div class="modal-body">
                                         <div class="text-center">
+                                        <input type="text" id="id_delete" class="form-control form-control-sm" name="id">
                                         <i class="fas fa-angle-double-right fa-4x mb-3 animated rotateIn"></i>
                                         <p>
-                                            Vous voulez vous vraiment supprimer cet utilisateur ? 
+                                            Vous voulez vous vraiment supprimer cet utilisateur ?
                                         </p>
                                         </div>
                                     </div>
+                                    </form>
                                     <!-- Footer -->
                                     <div class="modal-footer justify-content-center">
                                         <a type="button" class="btn btn-outline-danger waves-effect" data-dismiss="modal">Non merci<i class="far fa-gem ml-1"></i></a>
-                                        <a type="button" class="btn btn-danger">Supprimer </a>
+                                        <a type="submit" class="btn btn-danger" name="deleteUser">Supprimer </a>
                                     </div>
                                 </div>
                                 <!-- Content -->
@@ -276,6 +284,45 @@
 
         // SideNav Initialization
         $(".button-collapse").sideNav();
+
+        // Delete User using ajax
+        $(document).ready(function () {
+            // edit button
+            $('#edit').click( function(){
+                
+                $tr = $(this).closest('tr');
+
+                var data = $tr.children("td").map(function(){
+                    return $(this).text();
+                });
+                
+                $('#id').val(data[0]);
+                $('#firstname').val(data[1]);
+                $('#lastname').val(data[2]);
+                $('#email').val(data[3]);
+                $('#password').val(data[4]);
+                $('#birthday').val(data[5]);
+                $('#type').val(data[6]);
+                
+                data = 0;
+            });
+
+        });
+
+        $(document).ready(function(){
+            
+            // delete button
+            $('#delete').click( function(){
+                
+                $tr = $(this).closest('tr');
+
+                var data = $tr.children("td").map(function(){
+                    return $(this).text();
+                });
+                
+                $('#id_delete').val(data[0]);
+            });
+        });
 
     </script>
 </body>
