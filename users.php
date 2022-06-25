@@ -228,30 +228,30 @@ session_start();
 
 <!-- SCRIPTS -->
   <!-- JQuery -->
-  <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
-  <!-- Bootstrap tooltips -->
-  <script type="text/javascript" src="js/popper.min.js"></script>
-  <!-- Bootstrap core JavaScript -->
-  <script type="text/javascript" src="js/bootstrap.min.js">
-  </script>
-  <!-- MDB core JavaScript -->
-  <script type="text/javascript" src="js/mdb.min.js"></script>
-  <script type="text/javascript">
-    /* WOW.js init */
-    new WOW().init();
-    // Tooltips Initialization
-    $(function () {
-      $('[data-toggle="tooltip"]').tooltip()
-    })
+    <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+    <!-- Bootstrap tooltips -->
+    <script type="text/javascript" src="js/popper.min.js"></script>
+    <!-- Bootstrap core JavaScript -->
+    <script type="text/javascript" src="js/bootstrap.min.js">
+    </script>
+    <!-- MDB core JavaScript -->
+    <script type="text/javascript" src="js/mdb.min.js"></script>
+    <script type="text/javascript">
+        /* WOW.js init */
+        new WOW().init();
+        // Tooltips Initialization
+        $(function () {
+        $('[data-toggle="tooltip"]').tooltip()
+        })
 
-    // Material Select Initialization
-    $(document).ready(function () {
-      $('.mdb-select').material_select();
-    });
+        // Material Select Initialization
+        $(document).ready(function () {
+        $('.mdb-select').material_select();
+        });
 
-    // SideNav Initialization
-    $(".button-collapse").sideNav();
+        // SideNav Initialization
+        $(".button-collapse").sideNav();
 
-  </script>
+    </script>
 </body>
 </html>
