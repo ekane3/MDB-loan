@@ -7,7 +7,7 @@ session_start();
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
-  <title>E-Commerce - MDBootstrap</title>
+  <title>Statistiques</title>
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
   <!-- Bootstrap core CSS -->
@@ -16,7 +16,7 @@ session_start();
   <link href="css/mdb.min.css" rel="stylesheet">
   <style> </style>
 </head>
-<body>
+<body class="homepage-v1 hidden-sn white-skin animated">
     <?php
         include('header.php');
     ?>
