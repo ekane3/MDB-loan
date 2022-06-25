@@ -1,5 +1,9 @@
 <?php
-session_start();
+    // Commencer la session
+    session_start();
+
+    // Se connecter a la base de données
+    include("connexion.php");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -46,7 +50,9 @@ session_start();
                         <table class="table table-striped">
                             <thead class="thead-inverse">
                                 <tr>
+                                    <th></th>
                                     <th>Noms</th>
+                                    <th>Mot de passe</th>
                                     <th>Date de naissance</th>
                                     <th>Type</th>
                                     <th></th>
@@ -54,26 +60,36 @@ session_start();
                                 </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td scope="row">
-                                            <div class="d-flex px-2 py-1">
-                                                <div class="d-flex flex-column justify-content-center">
-                                                <h6 class="mb-0 text-sm">Laurent Perrier</h6>
-                                                <p class="text-xs text-secondary mb-0">
-                                                    laurent@creative-tim.com
-                                                </p>
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td> 22/05/2000</td>
-                                        <td>étudiant</td>
-                                        <td>
-                                            <span class="fas fa-edit text-success" data-toggle="modal" data-target="#editUser"></span>
-                                        </td>
-                                        <td>
-                                            <span class="fas fa-trash text-danger" data-toggle="modal" data-target="#deleteUser"></span>
-                                        </td>
-                                    </tr>
+                                <?php
+                                    $requete = $bdd->query(' SELECT * FROM users');
+                                    $i=1;
+                                    
+                                    while($data = $requete->fetch()){
+                                        echo'<tr>'
+                                                .'<td  scope="row">'.$i.'</td>'
+                                                .'<td>
+                                                    <div class="d-flex px-2 py-1">
+                                                        <div class="d-flex flex-column justify-content-center">
+                                                            <h6 class="mb-0 text-sm">'.$data['lastname'].' '.$data['firstname'].'</h6>
+                                                            <p class="text-xs text-secondary mb-0">
+                                                                '.$data['email'].'
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </td>'
+                                                .'<td  scope="row">'.$data['password'].'</td>'
+                                                .'<td  scope="row">'.$data['birthday'].'</td>'
+                                                .'<td>'.$data['type'].'</td>'
+                                                .'<td>
+                                                    <span class="fas fa-edit text-success waves-effect" data-toggle="modal" data-target="#editUser"></span>
+                                                </td>'
+                                                .'<td>
+                                                    <span class="fas fa-trash text-danger waves-effect" data-toggle="modal" data-target="#deleteUser"></span>
+                                                </td>'
+                                            .'</tr>';
+                                        $i++;
+                                    }    
+                                ?>
                                 </tbody>
                         </table>
 
@@ -91,40 +107,49 @@ session_start();
                                     <span aria-hidden="true">&times;</span>
                                     </button>
                                 </div>
-                                <!-- Body -->
-                                    <div class="modal-body mb-0">
-                                        <div class="md-form form-sm">
-                                            <i class="fas fa-user prefix"></i>
-                                            <input type="text" id="form19" class="form-control form-control-sm" name="firstname">
-                                            <label for="form19">Your first name</label>
-                                        </div>
-                                        <div class="md-form form-sm">
-                                            <i class="fas fa-user prefix"></i>
-                                            <input type="text" id="form30" class="form-control form-control-sm" name="lastname">
-                                            <label for="form30">Your last name</label>
-                                        </div>
+                                <!--AddUser Form-->
+                                    <form method="post" action="addUserPost.php">
+                                    <!-- Body -->
+                                        <div class="modal-body mb-0">
+                                            <div class="md-form form-sm">
+                                                <i class="fas fa-user prefix"></i>
+                                                <input type="text" id="form19" class="form-control form-control-sm" name="firstname">
+                                                <label for="form19">Your first name</label>
+                                            </div>
+                                            <div class="md-form form-sm">
+                                                <i class="fas fa-user prefix"></i>
+                                                <input type="text" id="form30" class="form-control form-control-sm" name="lastname">
+                                                <label for="form30">Your last name</label>
+                                            </div>
 
-                                        <div class="md-form form-sm">
-                                        <i class="fas fa-envelope prefix"></i>
-                                        <input type="email" id="form20" class="form-control form-control-sm" name="email">
-                                        <label for="form20">Your email</label>
-                                        </div>
+                                            <div class="md-form form-sm">
+                                            <i class="fas fa-envelope prefix"></i>
+                                            <input type="email" id="form20" class="form-control form-control-sm" name="email">
+                                            <label for="form20">Your email</label>
+                                            </div>
 
-                                        <div class="md-form form-sm">
-                                        <i class="fas fa-envelope prefix"></i>
-                                        <input type="password" id="form40" class="form-control form-control-sm" name="password">
-                                        <label for="form40">Mot de passe</label>
-                                        </div>
+                                            <div class="md-form form-sm">
+                                            <i class="fas fa-envelope prefix"></i>
+                                            <input type="password" id="form40" class="form-control form-control-sm" name="password">
+                                            <label for="form40">Mot de passe</label>
+                                            </div>
 
-                                        <div class="md-form form-sm mt-2">
-                                        <i class="fas fa-tag prefix"></i>
-                                        <input type="date" id="form21" class="form-control form-control-sm" >
-                                        </div>
+                                            <div class="md-form form-sm mt-2">
+                                            <i class="fas fa-tag prefix"></i>
+                                            <input type="date" id="form21" class="form-control form-control-sm" name="birthday" >
+                                            </div>
 
-                                        <div class="text-center mt-1-half">
-                                        <button class="btn btn-info mb-2">Enregistrer <i class="fas fa-paper-plane ml-1"></i></button>
+                                            <div class="md-form form-sm mt-2">
+                                            <i class="fas fa-tag prefix"></i>
+                                            <input type="text"  class="form-control form-control-sm" name="type" >
+                                            <label >Type d'utilisateur</label>    
+                                            </div>
+
+                                            <div class="text-center mt-1-half">
+                                            <button type="submit" class="btn btn-info mb-2" name="addUser">Enregistrer <i class="fas fa-paper-plane ml-1"></i></button>
+                                            </div>
                                         </div>
-                                    </div>
+                                    </form>
                                 </div>
                                 <!-- Content -->
                             </div>

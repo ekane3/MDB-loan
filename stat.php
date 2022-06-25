@@ -1,6 +1,11 @@
 <?php
-session_start();
+    // Commencer la session
+    session_start();
+
+    // Se connecter a la base de données
+    include("connexion.php");
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -32,55 +37,55 @@ session_start();
         <!-- First row -->
         <div class="row">
 
-        <!-- First column -->
-        <div class="col-xl-3 col-md-6 mb-xl-0 mb-4">
+            <!-- First column -->
+            <div class="col-xl-3 col-md-6 mb-xl-0 mb-4">
 
-            <!-- Card -->
-            <div class="card card-cascade cascading-admin-card">
+                <!-- Card -->
+                <div class="card card-cascade cascading-admin-card">
 
-                <!-- Card Data -->
-                <div class="admin-up text-center my-4">
-                    <i class="far fa-chart-bar primary-color mr-3 z-depth-2 mt-2"></i>
-                    <div class="data">
-                    <p class="text-uppercase">Nbre total prêt</p>
-                    <h4 class="font-weight-bold "> 50</h4>
+                    <!-- Card Data -->
+                    <div class="admin-up text-center my-4">
+                        <i class="far fa-chart-bar primary-color mr-3 z-depth-2 mt-2"></i>
+                        <div class="data">
+                        <p class="text-uppercase">Nbre total prêt</p>
+                        <h4 class="font-weight-bold "> 50</h4>
+                        </div>
                     </div>
+
                 </div>
+                <!-- Card -->
 
             </div>
-            <!-- Card -->
+            <!-- First column -->
 
-        </div>
-        <!-- First column -->
+            <!-- Second column -->
+            <div class="col-xl-3 col-md-6 mb-xl-0 mb-4">
 
-        <!-- Second column -->
-        <div class="col-xl-3 col-md-6 mb-xl-0 mb-4">
+                <!-- Card -->
+                <div class="card card-cascade cascading-admin-card">
 
-            <!-- Card -->
-            <div class="card card-cascade cascading-admin-card">
-
-                <!-- Card Data -->
-                <div class="admin-up text-center  my-4">
-                    <i class="fas fa-chart-line warning-color mr-3 z-depth-2 MT62"></i>
-                    <div class="data">
-                    <p class="text-uppercase">Non rendus</p>
-                    <h4 class="font-weight-bold ">375</h4>
+                    <!-- Card Data -->
+                    <div class="admin-up text-center  my-4">
+                        <i class="fas fa-chart-line warning-color mr-3 z-depth-2 MT62"></i>
+                        <div class="data">
+                        <p class="text-uppercase">Non rendus</p>
+                        <h4 class="font-weight-bold ">375</h4>
+                        </div>
                     </div>
+
                 </div>
+                <!-- Card -->
 
             </div>
-            <!-- Card -->
+            <!-- Second column -->
 
-        </div>
-        <!-- Second column -->
+            <!-- Third column -->
+            <div class="col-xl-3 col-md-6 mb-md-0 mb-4"> </div>
+            <!-- Third column -->
 
-        <!-- Third column -->
-        <div class="col-xl-3 col-md-6 mb-md-0 mb-4"> </div>
-        <!-- Third column -->
-
-        <!-- Fourth column -->
-        <div class="col-xl-3 col-md-6 mb-0"> </div>
-        <!-- Fourth column -->
+            <!-- Fourth column -->
+            <div class="col-xl-3 col-md-6 mb-0"> </div>
+            <!-- Fourth column -->
 
         </div>
         <!-- First row -->
