@@ -33,7 +33,7 @@
 
   <!-- Main layout -->
   <main>
-    <div class="container-fluid">
+    <div class="container">
 
       <!-- Section: Team v.1 -->
       <section class="section team-section">
@@ -172,7 +172,7 @@
                   ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
                   ullamco laboris nisi ut aliquip consequat.</p>
 
-                <a class="btn btn-info btn-rounded"> Modifier la photo</a>
+                <a class="btn btn-primary btn-rounded"> Modifier la photo</a>
 
               </div>
 
