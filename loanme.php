@@ -8,7 +8,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
-  <title>E-Commerce - MDBootstrap</title>
+  <title>Faire réservation des équipements</title>
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
   <!-- Bootstrap core CSS -->
@@ -152,161 +152,101 @@
 					<!-- Grid column -->
 					<div class="col-lg-3 col-md-6 mb-4">
 						<!-- Card -->
-						<div class="card card-ecommerce">
-							<!-- Card image -->
-							<div class="view overlay">
-								<img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/12.jpg" class="img-fluid"alt="sample image">
-								<a><div class="mask rgba-white-slight"></div></a>
-							</div>
-							<!-- Card image -->
-							<!-- Card content -->
-							<div class="card-body">
-								<!-- Category & Title -->
-								<h5 class="card-title mb-1">
-									<strong><a href="" class="dark-grey-text">Headphones</a></strong>
-								</h5>
-								<span class="badge badge-danger mb-2">bestseller</span>
-								<!-- Rating -->
-								<ul class="rating">
-									<li><i class="fas fa-star blue-text"></i></li>
-									<li><i class="fas fa-star blue-text"></i></li>
-									<li><i class="fas fa-star blue-text"></i></li>
-									<li><i class="fas fa-star blue-text"></i></li>
-									<li><i class="fas fa-star blue-text"></i></li>
-								</ul>
-								<!-- Card footer -->
-								<div class="card-footer pb-0">
-									<div class="row mb-0">
-										<span class="float-left"><strong>1439$</strong></span>
-										<span class="float-right">
-											<a class="" data-toggle="tooltip" data-placement="top" title="Add to Cart"><i class="fas fa-shopping-cart ml-3"></i></a>
-										</span>
-									</div>
-								</div>
-							</div>
-							<!-- Card content -->
-						</div>
-						<!-- Card -->
+                        <div class="card">
+
+                            <!-- Card image -->
+                            <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Lightbox/Thumbnail/img%20(97).jpg"
+                            alt="Card image cap">
+
+                            <!-- Card content -->
+                            <div class="card-body">
+                            <!-- Title -->
+                            <h4 class="card-title"><strong>{materiel.nom}</strong></h4>
+                            <!-- Text -->
+                            <p class="card-text">{materiel.description} Some quick example text to build on the card title and make up the bulk of the
+                                card's
+                                content.
+                            </p>
+                            <a href="#" class="btn btn-purple btn-rounded">Reserver</a>
+                            </div>
+
+                        </div>
+                        <!-- Card -->
 					</div>
 					<!-- Grid column -->
 					<!-- Grid column -->
 					<div class="col-lg-3 col-md-6 mb-4">
 						<!-- Card -->
-						<div class="card card-ecommerce">
-							<!-- Card image -->
-							<div class="view overlay">
-								<img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/16.jpg" class="img-fluid"alt="sample image">
-								<a><div class="mask rgba-white-slight"></div></a>
-							</div>
-							<!-- Card image -->
-							<!-- Card content -->
-							<div class="card-body">
-								<!-- Category & Title -->
-								<h5 class="card-title mb-1">
-									<strong><a href="" class="dark-grey-text">Headphones</a></strong>
-								</h5>
-								<span class="badge badge-danger mb-2">bestseller</span>
-								<!-- Rating -->
-								<ul class="rating">
-									<li><i class="fas fa-star blue-text"></i></li>
-									<li><i class="fas fa-star blue-text"></i></li>
-									<li><i class="fas fa-star blue-text"></i></li>
-									<li><i class="fas fa-star blue-text"></i></li>
-									<li><i class="fas fa-star blue-text"></i></li>
-								</ul>
-								<!-- Card footer -->
-								<div class="card-footer pb-0">
-									<div class="row mb-0">
-										<span class="float-left"><strong>1439$</strong></span>
-										<span class="float-right">
-											<a class="" data-toggle="tooltip" data-placement="top" title="Add to Cart"><i class="fas fa-shopping-cart ml-3"></i></a>
-										</span>
-									</div>
-								</div>
-							</div>
-							<!-- Card content -->
-						</div>
-						<!-- Card -->
+                        <div class="card">
+
+                            <!-- Card image -->
+                            <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Lightbox/Thumbnail/img%20(97).jpg"
+                            alt="Card image cap">
+
+                            <!-- Card content -->
+                            <div class="card-body">
+                            <!-- Title -->
+                            <h4 class="card-title"><strong>{materiel.nom}</strong></h4>
+                            <!-- Text -->
+                            <p class="card-text">{materiel.description} Some quick example text to build on the card title and make up the bulk of the
+                                card's
+                                content.
+                            </p>
+                            <a href="#" class="btn btn-purple btn-rounded">Reserver</a>
+                            </div>
+
+                        </div>
+                        <!-- Card -->
 					</div>
 					<!-- Grid column -->
 					<!-- Grid column -->
 					<div class="col-lg-3 col-md-6 mb-4">
 						<!-- Card -->
-						<div class="card card-ecommerce">
-							<!-- Card image -->
-							<div class="view overlay">
-								<img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/11.jpg" class="img-fluid"alt="sample image">
-								<a><div class="mask rgba-white-slight"></div></a>
-							</div>
-							<!-- Card image -->
-							<!-- Card content -->
-							<div class="card-body">
-								<!-- Category & Title -->
-								<h5 class="card-title mb-1">
-									<strong><a href="" class="dark-grey-text">iPhone</a></strong>
-								</h5>
-								<span class="badge badge-info mb-2">new</span>
-								<!-- Rating -->
-								<ul class="rating">
-									<li><i class="fas fa-star blue-text"></i></li>
-									<li><i class="fas fa-star blue-text"></i></li>
-									<li><i class="fas fa-star blue-text"></i></li>
-									<li><i class="fas fa-star blue-text"></i></li>
-									<li><i class="fas fa-star blue-text"></i></li>
-								</ul>
-								<!-- Card footer -->
-								<div class="card-footer pb-0">
-									<div class="row mb-0">
-										<span class="float-left"><strong>1439$</strong></span>
-										<span class="float-right">
-											<a class="" data-toggle="tooltip" data-placement="top" title="Add to Cart"><i class="fas fa-shopping-cart ml-3"></i></a>
-										</span>
-									</div>
-								</div>
-							</div>
-							<!-- Card content -->
-						</div>
-						<!-- Card -->
+                        <div class="card">
+
+                            <!-- Card image -->
+                            <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Lightbox/Thumbnail/img%20(97).jpg"
+                            alt="Card image cap">
+
+                            <!-- Card content -->
+                            <div class="card-body">
+                            <!-- Title -->
+                            <h4 class="card-title"><strong>{materiel.nom}</strong></h4>
+                            <!-- Text -->
+                            <p class="card-text">{materiel.description} Some quick example text to build on the card title and make up the bulk of the
+                                card's
+                                content.
+                            </p>
+                            <a href="#" class="btn btn-purple btn-rounded">Reserver</a>
+                            </div>
+
+                        </div>
+                        <!-- Card -->
 					</div>
 					<!-- Grid column -->
 					<!-- Grid column -->
 					<div class="col-lg-3 col-md-6 mb-4">
 						<!-- Card -->
-						<div class="card card-ecommerce">
-							<!-- Card image -->
-							<div class="view overlay">
-								<img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/3.jpg" class="img-fluid"alt="sample image">
-								<a><div class="mask rgba-white-slight"></div></a>
-							</div>
-							<!-- Card image -->
-							<!-- Card content -->
-							<div class="card-body">
-								<!-- Category & Title -->
-								<h5 class="card-title mb-1">
-									<strong><a href="" class="dark-grey-text">iMac</a></strong>
-								</h5>
-								<span class="badge badge-danger mb-2">bestseller</span>
-								<!-- Rating -->
-								<ul class="rating">
-									<li><i class="fas fa-star blue-text"></i></li>
-									<li><i class="fas fa-star blue-text"></i></li>
-									<li><i class="fas fa-star blue-text"></i></li>
-									<li><i class="fas fa-star blue-text"></i></li>
-									<li><i class="fas fa-star grey-text"></i></li>
-								</ul>
-								<!-- Card footer -->
-								<div class="card-footer pb-0">
-									<div class="row mb-0">
-										<span class="float-left"><strong>1439$</strong></span>
-										<span class="float-right">
-											<a class="" data-toggle="tooltip" data-placement="top" title="Add to Cart"><i class="fas fa-shopping-cart ml-3"></i></a>
-										</span>
-									</div>
-								</div>
-							</div>
-							<!-- Card content -->
-						</div>
-						<!-- Card -->
+                        <div class="card">
+
+                            <!-- Card image -->
+                            <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Lightbox/Thumbnail/img%20(97).jpg"
+                            alt="Card image cap">
+
+                            <!-- Card content -->
+                            <div class="card-body">
+                            <!-- Title -->
+                            <h4 class="card-title"><strong>{materiel.nom}</strong></h4>
+                            <!-- Text -->
+                            <p class="card-text">{materiel.description} Some quick example text to build on the card title and make up the bulk of the
+                                card's
+                                content.
+                            </p>
+                            <a href="#" class="btn btn-purple btn-rounded">Reserver</a>
+                            </div>
+
+                        </div>
+                        <!-- Card -->
 					</div>
 					<!-- Grid column -->
 				</div>

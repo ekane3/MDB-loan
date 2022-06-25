@@ -22,204 +22,166 @@ session_start();
     ?>
     
     <br><br><br>
-    <br><br><br>
+    
     <!-- Main Container -->
     <div class="container">
-        <div class="row mt-4">
-            <div class="col-lg-12">
-                <div class="row">
-                    <div class="col-10">
-                        <h1 class="mb-3">Tableau de bord</h1>
-                    </div>
-                    <div class="col-2"> 
-                        <button class="btn btn-warning btn-sm float-end btn-rounded" type="button" data-toggle="modal" data-target="#addMateriel">
-                            <i class="fas fa-plus"></i>    
-                            Add New
-                        </button>
+         <!-- Section: Analytical panel -->
+      <section class="mt-md-4 pt-md-2 mb-5">
+        <h1 class="mb-3">Tableau de bord</h1>
+        <br><br><br>
+        <!-- First row -->
+        <div class="row">
+
+        <!-- First column -->
+        <div class="col-xl-3 col-md-6 mb-xl-0 mb-4">
+
+            <!-- Card -->
+            <div class="card card-cascade cascading-admin-card">
+
+                <!-- Card Data -->
+                <div class="admin-up text-center my-4">
+                    <i class="far fa-chart-bar primary-color mr-3 z-depth-2 mt-2"></i>
+                    <div class="data">
+                    <p class="text-uppercase">Nbre total prêt</p>
+                    <h4 class="font-weight-bold "> 50</h4>
                     </div>
                 </div>
-                <div class="card">
-                    <div class="card-body">
-                        <table class="table table-striped">
-                            <thead class="thead-inverse">
-                                <tr>
-                                    <th>Noms</th>
-                                    <th>Description</th>
-                                    <th>Date achat</th>
-                                    <th>Prix achat</th>
-                                    <th>Fournisseur</th>
-                                    <th></th>
-                                    <th>#</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td scope="row">
-                                            Ordinateur portable
-                                        </td>
-                                        <td>
-                                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting,
-                                        </td>
-                                        <td>22/05/2000</td>
-                                        <td>799,99 €</td>
-                                        <td>Dell</td>
-                                        <td>
-                                            <span class="fas fa-edit text-success" data-toggle="modal" data-target="#editMateriel"></span>
-                                        </td>
-                                        <td>
-                                            <span class="fas fa-trash text-danger" data-toggle="modal" data-target="#deleteMateriel"></span>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                        </table>
 
-                        <!--Créer modal-->
-                        <!-- Modal: Ajouter form -->
-                        <div class="modal fade" id="addMateriel" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                            <div class="modal-dialog cascading-modal" role="document">
-                                <!-- Content -->
-                                <div class="modal-content">
+            </div>
+            <!-- Card -->
 
-                                <!-- Header -->
-                                <div class="modal-header light-blue darken-3 white-text">
-                                    <h4 class=""><i class="fas fa-pencil-alt"></i> Ajouter du matériel</h4>
-                                    <button type="button" class="close waves-effect waves-light" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </div>
-                                <!-- Body -->
-                                    <div class="modal-body mb-0">
-                                        <div class="md-form form-sm">
-                                            <i class="fas fa-user prefix"></i>
-                                            <input type="text" id="form19" class="form-control form-control-sm" name="nom">
-                                            <label for="form19">Name</label>
-                                        </div>
-                                        <div class="md-form form-sm">
-                                            <i class="fas fa-pencil-alt prefix"></i>
-                                            <textarea type="text" id="form8" class="md-textarea form-control form-control-sm" rows="3" name="description"></textarea>
-                                            <label for="form8">Description</label>
-                                        </div>
-                                        <div class="md-form form-sm">
-                                            <i class="fas fa-user prefix"></i>
-                                            <input type="date" id="form30" class="form-control form-control-sm" name="date_achat">
-                                            <label for="form30">Date achat</label>
-                                        </div>
+        </div>
+        <!-- First column -->
 
-                                        <div class="md-form form-sm">
-                                        <i class="fas fa-envelope prefix"></i>
-                                        <input type="number" id="form20" class="form-control form-control-sm" name="prix_achat">
-                                        <label for="form20">Prix achat</label>
-                                        </div>
+        <!-- Second column -->
+        <div class="col-xl-3 col-md-6 mb-xl-0 mb-4">
 
-                                        <div class="md-form form-sm">
-                                        <i class="fas fa-envelope prefix"></i>
-                                        <input type="text" id="form40" class="form-control form-control-sm" name="fournisseur">
-                                        <label for="form40">Fournisseur</label>
-                                        </div>
+            <!-- Card -->
+            <div class="card card-cascade cascading-admin-card">
 
-                                        <div class="text-center mt-1-half">
-                                        <button class="btn btn-info mb-2">Enregistrer <i class="fas fa-paper-plane ml-1"></i></button>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- Content -->
-                            </div>
-                        </div>
-                        <!-- Modal: Ajouterform -->
-
-                        <!--Edit modal-->
-                        <div class="modal fade" id="editMateriel" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                            <div class="modal-dialog cascading-modal" role="document">
-                                <!-- Content -->
-                                <div class="modal-content">
-
-                                <!-- Header -->
-                                <div class="modal-header light-blue darken-3 white-text">
-                                    <h4 class=""><i class="fas fa-pencil-alt"></i> Ajouter du matériel</h4>
-                                    <button type="button" class="close waves-effect waves-light" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </div>
-                                <!-- Body -->
-                                    <div class="modal-body mb-0">
-                                        <div class="md-form form-sm">
-                                            <i class="fas fa-user prefix"></i>
-                                            <input type="text" id="form19" class="form-control form-control-sm" name="nom">
-                                            <label for="form19">Name</label>
-                                        </div>
-                                        <div class="md-form form-sm">
-                                            <i class="fas fa-pencil-alt prefix"></i>
-                                            <textarea type="text" id="form8" class="md-textarea form-control form-control-sm" rows="3" name="description"></textarea>
-                                            <label for="form8">Description</label>
-                                        </div>
-                                        <div class="md-form form-sm">
-                                            <i class="fas fa-user prefix"></i>
-                                            <input type="date" id="form30" class="form-control form-control-sm" name="date_achat">
-                                            <label for="form30">Date achat</label>
-                                        </div>
-
-                                        <div class="md-form form-sm">
-                                        <i class="fas fa-envelope prefix"></i>
-                                        <input type="number" id="form20" class="form-control form-control-sm" name="prix_achat">
-                                        <label for="form20">Prix achat</label>
-                                        </div>
-
-                                        <div class="md-form form-sm">
-                                        <i class="fas fa-envelope prefix"></i>
-                                        <input type="text" id="form40" class="form-control form-control-sm" name="fournisseur">
-                                        <label for="form40">Fournisseur</label>
-                                        </div>
-
-                                        <div class="text-center mt-1-half">
-                                        <button class="btn btn-info mb-2">Enregistrer <i class="fas fa-paper-plane ml-1"></i></button>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- Content -->
-                            </div>
-                        </div>
-                        <!--Edit modal-->
-
-                        <!--Supprimer modal-->
-                        <div class="modal fade" id="deleteMateriel" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"aria-hidden="true">
-                            <div class="modal-dialog modal-notify modal-danger" role="document">
-                                <!-- Content -->
-                                <div class="modal-content">
-                                    <!-- Header -->
-                                    <div class="modal-header">
-                                        <p class="heading lead">Modal Success</p>
-                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true" class="white-text">&times;</span>
-                                        </button>
-                                    </div>
-
-                                    <!-- Body -->
-                                    <div class="modal-body">
-                                        <div class="text-center">
-                                        <i class="fas fa-angle-double-right fa-4x mb-3 animated rotateIn"></i>
-                                        <p>
-                                            Vous voulez vous vraiment supprimer ce matériel ? 
-                                        </p>
-                                        </div>
-                                    </div>
-                                    <!-- Footer -->
-                                    <div class="modal-footer justify-content-center">
-                                        <a type="button" class="btn btn-outline-danger waves-effect" data-dismiss="modal">Non merci<i class="far fa-gem ml-1"></i></a>
-                                        <a type="button" class="btn btn-danger">Supprimer </a>
-                                    </div>
-                                </div>
-                                <!-- Content -->
-                            </div>
-                        </div>
-
-                        <!--/ Supprimer modal-->
-                        
+                <!-- Card Data -->
+                <div class="admin-up text-center  my-4">
+                    <i class="fas fa-chart-line warning-color mr-3 z-depth-2 MT62"></i>
+                    <div class="data">
+                    <p class="text-uppercase">Non rendus</p>
+                    <h4 class="font-weight-bold ">375</h4>
                     </div>
+                </div>
+
+            </div>
+            <!-- Card -->
+
+        </div>
+        <!-- Second column -->
+
+        <!-- Third column -->
+        <div class="col-xl-3 col-md-6 mb-md-0 mb-4"> </div>
+        <!-- Third column -->
+
+        <!-- Fourth column -->
+        <div class="col-xl-3 col-md-6 mb-0"> </div>
+        <!-- Fourth column -->
+
+        </div>
+        <!-- First row -->
+
+        </section>
+        <!-- Section: Analytical panel -->
+
+        <div class="row mt-4">
+            <div class="col-lg-12">
+                 <!-- Panel -->
+                <div class="card mb-lg-0 mb-4">
+
+                    <div class="card-header white-text primary-color">
+                    <h5 class="font-weight-500 my-1">Matériel pas rendu</h5>
+                    </div>
+
+                    <div class="card-body">
+
+                    <div class="table-responsive">
+                        <table class="table">
+                        <thead>
+                            <tr>
+                            <th class="font-weight-bold ">Status</th>
+                            <th class="font-weight-bold ">Nom</th>
+                            <th class="font-weight-bold ">Date pretée</th>
+                            <th class="font-weight-bold ">Date rendue</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><span class="badge red">Pas rendu</span></td>
+                                <td>Lorem ipsum dolor</td>
+                                <td>John Doe</td>
+                                <td class="hour">
+                                    <span class="grey-text">
+                                    <i class="far fa-clock-o" aria-hidden="true"></i> 12 min
+                                    </span>
+                                </td>
+                            </tr>
+                        </tbody>
+                        </table>
+                    </div>
+
+                    </div>
+
+                    </div>
+                    <!-- Panel -->
+                </div>
+            </div>
+
+
+            <div class="row mt-4">
+            <div class="col-lg-12">
+                 <!-- Panel -->
+                <div class="card mb-lg-0 mb-4">
+
+                    <div class="card-header white-text primary-color">
+                    <h5 class="font-weight-500 my-1">Mon historique de prêt</h5>
+                    </div>
+
+                    <div class="card-body">
+
+                    <div class="table-responsive">
+                        <table class="table">
+                        <thead>
+                            <tr>
+                            <th class="font-weight-bold ">Status</th>
+                            <th class="font-weight-bold ">Nom</th>
+                            <th class="font-weight-bold ">Date pretée</th>
+                            <th class="font-weight-bold ">Date rendue</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><span class="badge green">Open</span></td>
+                                <td>Lorem ipsum dolor</td>
+                                <td>John Doe</td>
+                                <td class="hour">
+                                    <span class="grey-text">
+                                    <i class="far fa-clock-o" aria-hidden="true"></i> 12 min
+                                    </span>
+                                </td>
+                            </tr>
+                        </tbody>
+                        </table>
+                    </div>
+
+                    </div>
+
+                    </div>
+                    <!-- Panel -->
                 </div>
             </div>
         </div>
-    </div>
-    <!-- Main Container -->
+
+
+
+        </div>
+
+     
+        <!-- Main Container -->
 
 
 
