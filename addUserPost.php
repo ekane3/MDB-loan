@@ -43,16 +43,6 @@ try {
 
     }
 
-    // si le bouton supprimer est cliqué
-    if ( isset( $_POST["deleteUser"])){
-
-        $req=$bdd->prepare('delete from users where id=:id');
-        $req->bindParam(':id',$id);
-        $req->execute();
-        header("Location:users.php");
-
-    }
-
 } catch (Exception $e) {
     echo "non visible";
     die("Error".$e->getMessage());

@@ -11,7 +11,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
-  <title>E-Commerce - MDBootstrap</title>
+  <title>Gestion des utilisateurs</title>
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
   <!-- Bootstrap core CSS -->
@@ -75,10 +75,12 @@
                                                 .'<td>'.$data['password'].'</td>'
                                                 .'<td>'.$data['birthday'].'</td>'
                                                 .'<td>'.$data['type'].'</td>'
-                                                .'<td>
-                                                    <span id="edit" class="fas fa-edit text-success waves-effect" data-toggle="modal" data-target="#editUser"></span>
-                                                </td>'
-                                                .'<td>
+                                                ?>
+                                                <td>
+                                                    <span id="edit" class="fas fa-edit text-success waves-effect" ></span>
+                                                </td>
+                                                <?php 
+                                                echo '<td>
                                                     <span id="delete" class="fas fa-trash text-danger waves-effect" data-toggle="modal" data-target="#deleteUser"></span>
                                                 </td>'
                                             .'</tr>';
@@ -227,22 +229,23 @@
                                     </div>
 
                                     <!-- Body -->
-                                    <form action="addUserPost.php" method="post">
+                                    <form action="deleteUserPost.php" method="post">
                                     <div class="modal-body">
                                         <div class="text-center">
-                                        <input type="text" id="id_delete" class="form-control form-control-sm" name="id">
+                                        <input type="hidden" id="id_delete" class="form-control form-control-sm" name="id_del">
                                         <i class="fas fa-angle-double-right fa-4x mb-3 animated rotateIn"></i>
                                         <p>
                                             Vous voulez vous vraiment supprimer cet utilisateur ?
                                         </p>
                                         </div>
                                     </div>
-                                    </form>
+                                   
                                     <!-- Footer -->
                                     <div class="modal-footer justify-content-center">
                                         <a type="button" class="btn btn-outline-danger waves-effect" data-dismiss="modal">Non merci<i class="far fa-gem ml-1"></i></a>
-                                        <a type="submit" class="btn btn-danger" name="deleteUser">Supprimer </a>
+                                        <button type="submit" class="btn btn-danger" name="deleteUser">Supprimer </button>
                                     </div>
+                                    </form>
                                 </div>
                                 <!-- Content -->
                             </div>
@@ -284,18 +287,31 @@
 
         // SideNav Initialization
         $(".button-collapse").sideNav();
-
-        // Delete User using ajax
+        /*
+        function editUserfunc(id,firstname,lastname,email,password,birthday,type){
+            $(document).ready(function () {
+                $('#id').val(id);
+                $('#firstname').val(firtsname);
+                $('#lastname').val(lastname);
+                $('#email').val(email);
+                $('#password').val(password);
+                $('#birthday').val(birthday);
+                $('#type').val(type);
+            });
+        }
+        */
         $(document).ready(function () {
             // edit button
-            $('#edit').click( function(){
-                
+            $(document).on("click","#edit", function() {
+           // $('#edit').click( function(){
+
                 $tr = $(this).closest('tr');
 
                 var data = $tr.children("td").map(function(){
                     return $(this).text();
                 });
-                
+
+                $('#editUser').modal('show');
                 $('#id').val(data[0]);
                 $('#firstname').val(data[1]);
                 $('#lastname').val(data[2]);
@@ -312,7 +328,8 @@
         $(document).ready(function(){
             
             // delete button
-            $('#delete').click( function(){
+            $(document).on("click","#delete", function() {
+           // $('#delete').click( function(){
                 
                 $tr = $(this).closest('tr');
 

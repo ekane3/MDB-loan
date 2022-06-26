@@ -1,5 +1,9 @@
 <?php
-session_start();
+    // Commencer la session
+    session_start();
+
+    // Se connecter a la base de données
+    include("connexion.php");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -7,7 +11,7 @@ session_start();
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
-  <title>E-Commerce - MDBootstrap</title>
+  <title>Gestion du matériel</title>
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
   <!-- Bootstrap core CSS -->
@@ -46,7 +50,9 @@ session_start();
                         <table class="table table-striped">
                             <thead class="thead-inverse">
                                 <tr>
+                                    <th></th>
                                     <th>Noms</th>
+                                    <th>Code barre</th>
                                     <th>Description</th>
                                     <th>Date achat</th>
                                     <th>Prix achat</th>
@@ -56,23 +62,31 @@ session_start();
                                 </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td scope="row">
-                                            Ordinateur portable
-                                        </td>
-                                        <td>
-                                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting,
-                                        </td>
-                                        <td>22/05/2000</td>
-                                        <td>799,99 €</td>
-                                        <td>Dell</td>
-                                        <td>
-                                            <span class="fas fa-edit text-success" data-toggle="modal" data-target="#editMateriel"></span>
-                                        </td>
-                                        <td>
-                                            <span class="fas fa-trash text-danger" data-toggle="modal" data-target="#deleteMateriel"></span>
-                                        </td>
-                                    </tr>
+                                <?php
+                                    $requete = $bdd->query(' SELECT * FROM material');
+                                    $i=1;
+                                    
+                                    while($data = $requete->fetch()){
+                                        echo'<tr>'
+                                                .'<td  scope="row">'.$data['id'].'</td>'
+                                                .'<td>'.$data['name'].'</td>'
+                                                .'<td>'.$data['codebarre'].'</td>'
+                                                .'<td>'.$data['description'].'</td>'
+                                                .'<td>'.$data['purchased_date'].'</td>'
+                                                .'<td>'.$data['purchased_price'].'</td>'
+                                                .'<td>'.$data['supplier'].'</td>'
+                                                ?>
+                                                <td>
+                                                    <span id="edit" class="fas fa-edit text-success waves-effect" ></span>
+                                                </td>
+                                                <?php 
+                                                echo '<td>
+                                                    <span id="delete" class="fas fa-trash text-danger waves-effect" data-toggle="modal" data-target="#deleteMateriel"></span>
+                                                </td>'
+                                            .'</tr>';
+                                       // $i++;
+                                    }    
+                                ?>
                                 </tbody>
                         </table>
 
@@ -252,6 +266,46 @@ session_start();
     // SideNav Initialization
     $(".button-collapse").sideNav();
 
+    $(document).ready(function () {
+            // edit button
+            $(document).on("click","#edit", function() {
+           // $('#edit').click( function(){
+
+                $tr = $(this).closest('tr');
+
+                var data = $tr.children("td").map(function(){
+                    return $(this).text();
+                });
+
+                $('#editMateriel').modal('show');
+                $('#id').val(data[0]);
+                $('#firstname').val(data[1]);
+                $('#lastname').val(data[2]);
+                $('#email').val(data[3]);
+                $('#password').val(data[4]);
+                $('#birthday').val(data[5]);
+                $('#type').val(data[6]);
+                
+                data = 0;
+            });
+
+        });
+
+        $(document).ready(function(){
+            
+            // delete button
+            $(document).on("click","#delete", function() {
+           // $('#delete').click( function(){
+                
+                $tr = $(this).closest('tr');
+
+                var data = $tr.children("td").map(function(){
+                    return $(this).text();
+                });
+                
+                $('#id_delete').val(data[0]);
+            });
+        });
   </script>
 </body>
 </html>
