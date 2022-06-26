@@ -15,7 +15,7 @@ try {
     include('connexion.php');
 
     // Si le bouton du modal d'enregistrer un nouvel user est  cliqué
-    if ( isset( $_POST["addUser"])){
+    if ( isset( $_POST["addMateriel"])){
 
         $req=$bdd->prepare('insert into material(codebarre, name, description,purchased_date,purchased_price, supplier, id_institution) values(:codebarre, :name, :description, :purchased_date, :purchased_price, :supplier, :id_institution)');
         $req->bindParam(':codebarre',$codebarre);
@@ -26,14 +26,14 @@ try {
         $req->bindParam(':supplier',$supplier);
         $req->bindParam(':id_institution',$id_institution);
         $req->execute();
-        header("Location:users.php");
+        header("Location:materiels.php");
 
     }
 
     // Si le bouton du modal modifier un nouvel user est  cliqué
-    if ( isset( $_POST["updateUser"])){
+    if ( isset( $_POST["updateMateriel"])){
 
-        $req=$bdd->prepare('update users set codebarre=:codebarre, name=:name, email=:email,description=:description, purchased_date=:purchased_date, purchased_price=:purchased_price, supplier=:supplier  where id=:id');
+        $req=$bdd->prepare('update material set codebarre=:codebarre, name=:name,description=:description, purchased_date=:purchased_date, purchased_price=:purchased_price, supplier=:supplier  where id=:id');
         $req->bindParam(':id',$id);
         $req->bindParam(':codebarre',$codebarre);
         $req->bindParam(':name',$materiel_name);

@@ -7,7 +7,7 @@ try {
     include('connexion.php');
 
     // si le bouton supprimer est cliqué
-    if ( isset( $_POST["deleteUser"])){
+    if ( isset( $_POST["deleteMateriel"])){
 
         $req=$bdd->prepare('delete from material where id=:id');
         $req->bindParam(':id',$id_del);

@@ -105,11 +105,17 @@
                                     </button>
                                 </div>
                                 <!-- Body -->
+                                    <form action="addMaterialPost.php" method="post">
                                     <div class="modal-body mb-0">
                                         <div class="md-form form-sm">
                                             <i class="fas fa-user prefix"></i>
-                                            <input type="text" id="form19" class="form-control form-control-sm" name="nom">
+                                            <input type="text" id="form19" class="form-control form-control-sm" name="materiel_name">
                                             <label for="form19">Name</label>
+                                        </div>
+                                        <div class="md-form form-sm">
+                                            <i class="fas fa-user prefix"></i>
+                                            <input type="text" id="form19" class="form-control form-control-sm" name="codebarre">
+                                            <label for="form19">Code barre</label>
                                         </div>
                                         <div class="md-form form-sm">
                                             <i class="fas fa-pencil-alt prefix"></i>
@@ -118,26 +124,27 @@
                                         </div>
                                         <div class="md-form form-sm">
                                             <i class="fas fa-user prefix"></i>
-                                            <input type="date" id="form30" class="form-control form-control-sm" name="date_achat">
+                                            <input type="date" id="form30" class="form-control form-control-sm" name="purchased_date">
                                             <label for="form30">Date achat</label>
                                         </div>
 
                                         <div class="md-form form-sm">
                                         <i class="fas fa-envelope prefix"></i>
-                                        <input type="number" id="form20" class="form-control form-control-sm" name="prix_achat">
+                                        <input type="number" id="form20" class="form-control form-control-sm" name="purchased_price">
                                         <label for="form20">Prix achat</label>
                                         </div>
 
                                         <div class="md-form form-sm">
                                         <i class="fas fa-envelope prefix"></i>
-                                        <input type="text" id="form40" class="form-control form-control-sm" name="fournisseur">
+                                        <input type="text" id="form40" class="form-control form-control-sm" name="supplier">
                                         <label for="form40">Fournisseur</label>
                                         </div>
 
                                         <div class="text-center mt-1-half">
-                                        <button class="btn btn-info mb-2">Enregistrer <i class="fas fa-paper-plane ml-1"></i></button>
+                                        <button type="submit" class="btn btn-info mb-2" name="addMateriel">Enregistrer <i class="fas fa-paper-plane ml-1"></i></button>
                                         </div>
                                     </div>
+                                </form>
                                 </div>
                                 <!-- Content -->
                             </div>
@@ -152,45 +159,53 @@
 
                                 <!-- Header -->
                                 <div class="modal-header light-blue darken-3 white-text">
-                                    <h4 class=""><i class="fas fa-pencil-alt"></i> Ajouter du matériel</h4>
+                                    <h4 class=""><i class="fas fa-pencil-alt"></i> Modifier un équipement</h4>
                                     <button type="button" class="close waves-effect waves-light" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                     </button>
                                 </div>
                                 <!-- Body -->
+                                <form action="addMaterialPost.php" method="post">
                                     <div class="modal-body mb-0">
                                         <div class="md-form form-sm">
                                             <i class="fas fa-user prefix"></i>
-                                            <input type="text" id="form19" class="form-control form-control-sm" name="nom">
+                                            <input type="hidden" id="id" class="form-control form-control-sm" name="id">
+                                            <input type="text" id="name" class="form-control form-control-sm" name="materiel_name">
                                             <label for="form19">Name</label>
                                         </div>
                                         <div class="md-form form-sm">
+                                            <i class="fas fa-user prefix"></i>
+                                            <input type="text" id="codebarre" class="form-control form-control-sm" name="codebarre">
+                                            <label for="form19">Code barre</label>
+                                        </div>
+                                        <div class="md-form form-sm">
                                             <i class="fas fa-pencil-alt prefix"></i>
-                                            <textarea type="text" id="form8" class="md-textarea form-control form-control-sm" rows="3" name="description"></textarea>
+                                            <textarea type="text" id="description" class="md-textarea form-control form-control-sm" rows="3" name="description"></textarea>
                                             <label for="form8">Description</label>
                                         </div>
                                         <div class="md-form form-sm">
                                             <i class="fas fa-user prefix"></i>
-                                            <input type="date" id="form30" class="form-control form-control-sm" name="date_achat">
+                                            <input type="date" id="purchased_date" class="form-control form-control-sm" name="purchased_date">
                                             <label for="form30">Date achat</label>
                                         </div>
 
                                         <div class="md-form form-sm">
-                                        <i class="fas fa-envelope prefix"></i>
-                                        <input type="number" id="form20" class="form-control form-control-sm" name="prix_achat">
+                                        <i class="fas fa-price prefix"></i>
+                                        <input type="number" id="purchased_price" class="form-control form-control-sm" name="purchased_price">
                                         <label for="form20">Prix achat</label>
                                         </div>
 
                                         <div class="md-form form-sm">
                                         <i class="fas fa-envelope prefix"></i>
-                                        <input type="text" id="form40" class="form-control form-control-sm" name="fournisseur">
+                                        <input type="text" id="supplier" class="form-control form-control-sm" name="supplier">
                                         <label for="form40">Fournisseur</label>
                                         </div>
 
                                         <div class="text-center mt-1-half">
-                                        <button class="btn btn-info mb-2">Enregistrer <i class="fas fa-paper-plane ml-1"></i></button>
+                                        <button type="submit" class="btn btn-info mb-2" name="updateMateriel">Enregistrer <i class="fas fa-paper-plane ml-1"></i></button>
                                         </div>
                                     </div>
+                                </form>
                                 </div>
                                 <!-- Content -->
                             </div>
@@ -211,8 +226,10 @@
                                     </div>
 
                                     <!-- Body -->
+                                    <form action="deleteMaterielPost.php" method="post">
                                     <div class="modal-body">
                                         <div class="text-center">
+                                        <input type="hidden" id="id_delete" class="form-control form-control-sm" name="id_del">
                                         <i class="fas fa-angle-double-right fa-4x mb-3 animated rotateIn"></i>
                                         <p>
                                             Vous voulez vous vraiment supprimer ce matériel ? 
@@ -222,8 +239,9 @@
                                     <!-- Footer -->
                                     <div class="modal-footer justify-content-center">
                                         <a type="button" class="btn btn-outline-danger waves-effect" data-dismiss="modal">Non merci<i class="far fa-gem ml-1"></i></a>
-                                        <a type="button" class="btn btn-danger">Supprimer </a>
+                                        <button type="submit" class="btn btn-danger" name="deleteMateriel">Supprimer </button>
                                     </div>
+                                    </form>
                                 </div>
                                 <!-- Content -->
                             </div>
@@ -278,13 +296,14 @@
                 });
 
                 $('#editMateriel').modal('show');
+
                 $('#id').val(data[0]);
-                $('#firstname').val(data[1]);
-                $('#lastname').val(data[2]);
-                $('#email').val(data[3]);
-                $('#password').val(data[4]);
-                $('#birthday').val(data[5]);
-                $('#type').val(data[6]);
+                $('#name').val(data[1]);
+                $('#codebarre').val(data[2]);
+                $('#description').val(data[3]);
+                $('#purchased_date').val(data[4]);
+                $('#purchased_price').val(data[5]);
+                $('#supplier').val(data[6]);
                 
                 data = 0;
             });
