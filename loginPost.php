@@ -29,6 +29,7 @@ try{
       $_SESSION['firstname'] =$login ;
       $_SESSION['type'] =$data['type'] ;
       $_SESSION['password'] =$data['password'] ;
+      $_SESSION['id'] = $data['id'];
         //$_SESSION['statut'] = ("admin") ? header("Location: accueil.php"); : header("Location: accueilEtudiant.php"); ;
       header("Location: homepage-v1.php");
       $return = "vous etes bien connecté !";  

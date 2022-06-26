@@ -4,6 +4,21 @@
 
     // Se connecter a la base de données
     include("connexion.php");
+
+    // Compte nbre total prêt
+    $reqtotal = $bdd->query('SELECT COUNT(*) FROM borrow
+                            INNER JOIN users ON users.id = '.$_SESSION['id'].'
+                            INNER JOIN material ON material.id = id_material ;');
+    $nbretotal = $reqtotal->fetchColumn();
+
+    // Compte de pieces non rendues
+    $reqnonrendu = $bdd->query('SELECT COUNT(*) FROM borrow
+                            INNER JOIN users ON users.id = '.$_SESSION['id'].'
+                            INNER JOIN material ON material.id = id_material
+                            WHERE rendu = 0;');
+    $nbrenonrendu = $reqnonrendu->fetchColumn();
+
+
 ?>
 
 <!DOCTYPE html>
@@ -12,7 +27,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
-  <title>Statistiques</title>
+  <title>Statistiques etudiant</title>
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
   <!-- Bootstrap core CSS -->
@@ -48,7 +63,9 @@
                         <i class="far fa-chart-bar primary-color mr-3 z-depth-2 mt-2"></i>
                         <div class="data">
                         <p class="text-uppercase">Nbre total prêt</p>
-                        <h4 class="font-weight-bold "> 50</h4>
+                        <h4 class="font-weight-bold "> 
+                           <?=$nbretotal?>
+                        </h4>
                         </div>
                     </div>
 
@@ -69,7 +86,9 @@
                         <i class="fas fa-chart-line warning-color mr-3 z-depth-2 MT62"></i>
                         <div class="data">
                         <p class="text-uppercase">Non rendus</p>
-                        <h4 class="font-weight-bold ">375</h4>
+                        <h4 class="font-weight-bold ">
+                            <?=$nbrenonrendu?>
+                        </h4>
                         </div>
                     </div>
 
@@ -115,16 +134,21 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td><span class="badge red">Pas rendu</span></td>
-                                <td>Lorem ipsum dolor</td>
-                                <td>John Doe</td>
-                                <td class="hour">
-                                    <span class="grey-text">
-                                    <i class="far fa-clock-o" aria-hidden="true"></i> 12 min
-                                    </span>
-                                </td>
-                            </tr>
+                        <?php
+                            $requete = $bdd->query('SELECT id_material,borrowed_date,return_date,name FROM borrow
+                                                    INNER JOIN users ON users.id = '.$_SESSION['id'].'
+                                                    INNER JOIN material ON material.id = id_material
+                                                    WHERE rendu = 0;');
+                            
+                            while($data = $requete->fetch()){
+                                echo'<tr>'
+                                .'<td><span class="badge red">Pas rendu</span></td>'
+                                .'<td>'.$data['name'].'</td>'
+                                .'<td>'.$data['borrowed_date'].'</td>'
+                                .'<td>'.$data['return_date'].'</td>'
+                                .'</tr>';
+                            }    
+                        ?>
                         </tbody>
                         </table>
                     </div>
@@ -137,7 +161,7 @@
             </div>
 
 
-            <div class="row mt-4">
+            <div class="row my-4">
             <div class="col-lg-12">
                  <!-- Panel -->
                 <div class="card mb-lg-0 mb-4">
@@ -159,16 +183,26 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td><span class="badge green">Open</span></td>
-                                <td>Lorem ipsum dolor</td>
-                                <td>John Doe</td>
-                                <td class="hour">
-                                    <span class="grey-text">
-                                    <i class="far fa-clock-o" aria-hidden="true"></i> 12 min
-                                    </span>
-                                </td>
-                            </tr>
+                        <?php
+                            $requete = $bdd->query('SELECT id_material,borrowed_date,return_date,name,rendu FROM borrow
+                                                    INNER JOIN users ON users.id = '.$_SESSION['id'].'
+                                                    INNER JOIN material ON material.id = id_material;');
+                            
+                            while($data = $requete->fetch()){
+                                echo'<tr>';
+
+                                if( $data['rendu'] == 0){
+                                    echo '<td><span class="badge red">Pas rendu</span></td>';
+                                }else{
+                                    echo '<td><span class="badge green">Rendu</span></td>';
+                                }
+
+                                echo '<td>'.$data['name'].'</td>'
+                                .'<td>'.$data['borrowed_date'].'</td>'
+                                .'<td>'.$data['return_date'].'</td>'
+                                .'</tr>';
+                            }    
+                        ?>
                         </tbody>
                         </table>
                     </div>
@@ -180,8 +214,6 @@
                 </div>
             </div>
         </div>
-
-
 
         </div>
 
