@@ -18,9 +18,9 @@
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <!-- Material Design Bootstrap -->
   <link href="css/mdb.min.css" rel="stylesheet">
-  <style>
+  <!--Datatable css-->
+  <link href="https://cdn.datatables.net/1.12.1/css/dataTables.bootstrap5.min.css" rel="stylesheet">
 
-  </style>
 
 </head>
 <body class="homepage-v1 hidden-sn white-skin animated">
@@ -272,6 +272,10 @@
     </script>
     <!-- MDB core JavaScript -->
     <script type="text/javascript" src="js/mdb.min.js"></script>
+      <!--Datatables-->
+    <script  src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+    <script  src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap5.min.js"></script>
+
     <script type="text/javascript">
         /* WOW.js init */
         new WOW().init();
@@ -301,6 +305,8 @@
         }
         */
         $(document).ready(function () {
+
+            $('.table').DataTable();
             // edit button
             $(document).on("click","#edit", function() {
            // $('#edit').click( function(){
