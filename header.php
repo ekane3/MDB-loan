@@ -3,6 +3,12 @@
     $href_var = ( $_SESSION['type'] == "etudiant") ? "stat.php" : "admin_stat.php";
 
     // Faire le calcul du nombre de prêt effectué
+	    // Compte de pieces non rendues
+	$reqnonrendu = $bdd->query('SELECT COUNT(*) FROM borrow
+								INNER JOIN users ON users.id = '.$_SESSION['id'].'
+								INNER JOIN material ON material.id = id_material
+								WHERE rendu = 0;');
+	$nbrenonrendu = $reqnonrendu->fetchColumn();
 ?>
 
 <!-- Navigation -->
@@ -74,7 +80,9 @@
                     ?>
                             <li class="nav-item ">
                                 <a class="nav-link dark-grey-text font-weight-bold" href="#" data-toggle="modal" data-target="#cart-modal-ex">
-                                    <span class="badge danger-color">4</span>
+                                    <span class="badge danger-color">
+										<?=$nbrenonrendu?>
+									</span>
                                     <span class="clearfix d-none d-sm-inline-block">loans</span>
                                 </a>
                             </li>
