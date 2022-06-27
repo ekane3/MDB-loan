@@ -1,5 +1,9 @@
 <?php
-  session_start();
+    // Commencer la session
+    session_start();
+
+    // Se connecter a la base de données
+    include("connexion.php");
 ?>
 
 <!DOCTYPE html>
