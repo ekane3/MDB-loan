@@ -31,7 +31,7 @@ try{
       $_SESSION['password'] =$data['password'] ;
       $_SESSION['id'] = $data['id'];
         //$_SESSION['statut'] = ("admin") ? header("Location: accueil.php"); : header("Location: accueilEtudiant.php"); ;
-      header("Location: homepage-v1.php");
+      header("Location: stat.php");
       $return = "vous etes bien connecté !";  
     }
     else{

@@ -128,7 +128,7 @@
 				<div class="collapse navbar-collapse" id="navbarSupportedContent1">
 					<form class="search-form" role="search">
 						<div class="form-group md-form my-0 waves-light">
-							<input type="text" class="form-control" placeholder="Rechercher 🔎">
+							<input type="text" name="search" class="form-control" placeholder="Rechercher 🔎">
 						</div>
 					</form>
 				</div>
@@ -198,7 +198,11 @@
   ?>
   <!-- Footer -->
 <script type="text/javascript">
-
+	// search input 
+	$(document).ready(function () {
+		
+	});
 </script>
+
 </body>
 </html>

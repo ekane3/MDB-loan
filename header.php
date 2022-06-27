@@ -2,6 +2,7 @@
     // Le lien du dashboard utilisateur ou admin
     $href_var = ( $_SESSION['type'] == "etudiant") ? "stat.php" : "admin_stat.php";
 
+	include('connexion.php');
     // Faire le calcul du nombre de prêt effectué
 	    // Compte de pieces non rendues
 	$reqnonrendu = $bdd->query('SELECT COUNT(*) FROM borrow
