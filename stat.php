@@ -34,7 +34,7 @@
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <!-- Material Design Bootstrap -->
   <link href="css/mdb.min.css" rel="stylesheet">
-  <style> </style>
+
 </head>
 <body class="homepage-v1 hidden-sn white-skin animated">
     <?php
