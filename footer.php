@@ -5,7 +5,7 @@
 	<div class="footer-copyright py-3 text-center">
 		<div class="container-fluid">
 			© 2022 Copyright: 
-			<a href="#" target="_blank">EKANE & NZEKEt </a>
+			<a href="#" target="_blank">EKANE & NZEKET </a>
 		</div>
 	</div>
 	<!-- Copyright -->

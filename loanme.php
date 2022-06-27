@@ -154,105 +154,32 @@
 				<!-- Grid row -->
 				<div class="row">
 					<!-- Grid column -->
-					<div class="col-lg-3 col-md-6 mb-4">
-						<!-- Card -->
-                        <div class="card">
+					<?php
+                            $requete = $bdd->query('SELECT * FROM material;');
+                            
+                            while($data = $requete->fetch()){
+                                echo '<div class="col-lg-3 col-md-6 mb-4">
+								<!-- Card -->
+								<div class="card h-100">
+									<!-- Card image -->
+									<img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Lightbox/Thumbnail/img%20(97).jpg"
+									alt="Card image cap">
 
-                            <!-- Card image -->
-                            <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Lightbox/Thumbnail/img%20(97).jpg"
-                            alt="Card image cap">
-
-                            <!-- Card content -->
-                            <div class="card-body">
-                            <!-- Title -->
-                            <h4 class="card-title"><strong>{materiel.nom}</strong></h4>
-                            <!-- Text -->
-                            <p class="card-text">{materiel.description} Some quick example text to build on the card title and make up the bulk of the
-                                card's
-                                content.
-                            </p>
-                            <a href="#" class="btn btn-purple btn-rounded">Reserver</a>
-                            </div>
-
-                        </div>
-                        <!-- Card -->
-					</div>
-					<!-- Grid column -->
-					<!-- Grid column -->
-					<div class="col-lg-3 col-md-6 mb-4">
-						<!-- Card -->
-                        <div class="card">
-
-                            <!-- Card image -->
-                            <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Lightbox/Thumbnail/img%20(97).jpg"
-                            alt="Card image cap">
-
-                            <!-- Card content -->
-                            <div class="card-body">
-                            <!-- Title -->
-                            <h4 class="card-title"><strong>{materiel.nom}</strong></h4>
-                            <!-- Text -->
-                            <p class="card-text">{materiel.description} Some quick example text to build on the card title and make up the bulk of the
-                                card's
-                                content.
-                            </p>
-                            <a href="#" class="btn btn-purple btn-rounded">Reserver</a>
-                            </div>
-
-                        </div>
-                        <!-- Card -->
-					</div>
-					<!-- Grid column -->
-					<!-- Grid column -->
-					<div class="col-lg-3 col-md-6 mb-4">
-						<!-- Card -->
-                        <div class="card">
-
-                            <!-- Card image -->
-                            <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Lightbox/Thumbnail/img%20(97).jpg"
-                            alt="Card image cap">
-
-                            <!-- Card content -->
-                            <div class="card-body">
-                            <!-- Title -->
-                            <h4 class="card-title"><strong>{materiel.nom}</strong></h4>
-                            <!-- Text -->
-                            <p class="card-text">{materiel.description} Some quick example text to build on the card title and make up the bulk of the
-                                card's
-                                content.
-                            </p>
-                            <a href="#" class="btn btn-purple btn-rounded">Reserver</a>
-                            </div>
-
-                        </div>
-                        <!-- Card -->
-					</div>
-					<!-- Grid column -->
-					<!-- Grid column -->
-					<div class="col-lg-3 col-md-6 mb-4">
-						<!-- Card -->
-                        <div class="card">
-
-                            <!-- Card image -->
-                            <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Lightbox/Thumbnail/img%20(97).jpg"
-                            alt="Card image cap">
-
-                            <!-- Card content -->
-                            <div class="card-body">
-                            <!-- Title -->
-                            <h4 class="card-title"><strong>{materiel.nom}</strong></h4>
-                            <!-- Text -->
-                            <p class="card-text">{materiel.description} Some quick example text to build on the card title and make up the bulk of the
-                                card's
-                                content.
-                            </p>
-                            <a href="#" class="btn btn-purple btn-rounded">Reserver</a>
-                            </div>
-
-                        </div>
-                        <!-- Card -->
-					</div>
-					<!-- Grid column -->
+									<!-- Card content -->
+									<div class="card-body">
+										<!-- Title -->
+										<h4 class="card-title"><strong>'.$data['name'].'</strong></h4>
+										<!-- Text -->
+										<p class="card-text">'.$data['description'].'</p>
+										<p class="card-text font-weight-bold">'.$data['codebarre'].'</p>
+										<a href="#" class="btn btn-purple btn-rounded">Reserver</a>
+									</div>
+								</div>
+								<!-- Card -->
+							</div>';
+                            }    
+                    ?>
+					
 				</div>
 				<!-- Grid row -->
 			</section>
@@ -270,7 +197,8 @@
     include('footer.php');
   ?>
   <!-- Footer -->
+<script type="text/javascript">
 
+</script>
 </body>
-
 </html>
