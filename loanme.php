@@ -155,7 +155,8 @@
 				<div class="row">
 					<!-- Grid column -->
 					<?php
-                            $requete = $bdd->query('SELECT * FROM material;');
+                            $requete = $bdd->query('SELECT * FROM material 
+													WHERE id NOT IN (SELECT id_material from borrow );');
                             
                             while($data = $requete->fetch()){
                                 echo '<div class="col-lg-3 col-md-6 mb-4">
@@ -171,14 +172,52 @@
 										<h4 class="card-title"><strong>'.$data['name'].'</strong></h4>
 										<!-- Text -->
 										<p class="card-text">'.$data['description'].'</p>
+										<input type="hidden" class="id_mat" name="codebarre" value="'.$data["id"].'">
 										<p class="card-text font-weight-bold">'.$data['codebarre'].'</p>
-										<a href="#" class="btn btn-purple btn-rounded">Reserver</a>
+										<button  class="btn btn-purple btn-rounded reservEq" data-toggle="modal" data-target="#reservEquip" >Reserver</button>
 									</div>
 								</div>
 								<!-- Card -->
 							</div>';
                             }    
                     ?>
+					<!--Supprimer modal-->
+					<div class="modal fade" id="reservEquip" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"aria-hidden="true">
+                            <div class="modal-dialog modal-notify modal-primary" role="document">
+                                <!-- Content -->
+                                <div class="modal-content">
+                                    <!-- Header -->
+                                    <div class="modal-header">
+                                        <p class="heading lead">Modal Success</p>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true" class="white-text">&times;</span>
+                                        </button>
+                                    </div>
+
+                                    <!-- Body -->
+                                    <form action="reserveMaterialPost.php" method="post">
+                                    <div class="modal-body">
+                                        <div class="text-center">
+                                        <input type="hidden" id="id_materialpost" class="form-control form-control-sm" name="id_material">
+                                        <i class="fas fa-angle-double-right fa-4x mb-3 animated rotateIn"></i>
+                                        <p>
+                                            Voulez vous vraiment réserver cet équipement ?
+                                        </p>
+                                        </div>
+                                    </div>
+                                   
+                                    <!-- Footer -->
+                                    <div class="modal-footer justify-content-center">
+                                        <a type="button" class="btn btn-outline-danger waves-effect" data-dismiss="modal">Non merci<i class="far fa-gem ml-1"></i></a>
+                                        <button type="submit" class="btn btn-primary" name="reservEqui">Reserver </button>
+                                    </div>
+                                    </form>
+                                </div>
+                                <!-- Content -->
+                            </div>
+                        </div>
+
+                        <!--/ Supprimer modal-->
 					
 				</div>
 				<!-- Grid row -->
@@ -198,10 +237,17 @@
   ?>
   <!-- Footer -->
 <script type="text/javascript">
-	// search input 
-	$(document).ready(function () {
-		
-	});
+	// reserver button
+	$(document).ready(function(){
+            
+            // delete button
+            $(document).on("click",".reservEq", function() {
+           // $('#delete').click( function(){
+				var data = $('.id_mat').val();
+                console.log(data);
+                $('#id_materialpost').val(data);
+            });
+        });
 </script>
 
 </body>

@@ -128,7 +128,7 @@
                         <thead>
                             <tr>
                             <th class="font-weight-bold ">Status</th>
-                            <th class="font-weight-bold ">Nom</th>
+                            <th class="font-weight-bold ">Nom matériel</th>
                             <th class="font-weight-bold ">Date pretée</th>
                             <th class="font-weight-bold ">Date rendue</th>
                             </tr>
@@ -177,14 +177,15 @@
                         <thead>
                             <tr>
                             <th class="font-weight-bold ">Status</th>
-                            <th class="font-weight-bold ">Nom</th>
+                            <th class="font-weight-bold ">Nom matériel</th>
+                            <th class="font-weight-bold ">Nom étudiant</th>
                             <th class="font-weight-bold ">Date pretée</th>
                             <th class="font-weight-bold ">Date rendue</th>
                             </tr>
                         </thead>
                         <tbody>
                         <?php
-                            $requete = $bdd->query('SELECT id_material,borrowed_date,return_date,name,rendu FROM borrow
+                            $requete = $bdd->query('SELECT id_material,borrowed_date,return_date,name,rendu, users.firstname as firstname, users.lastname as lastname FROM borrow
                                                     INNER JOIN users ON users.id = user_id
                                                     INNER JOIN material ON material.id = id_material;');
                             
@@ -198,6 +199,7 @@
                                 }
 
                                 echo '<td>'.$data['name'].'</td>'
+                                .'<td>'.$data['firstname'].' '.$data['lastname'].'</td>'
                                 .'<td>'.$data['borrowed_date'].'</td>'
                                 .'<td>'.$data['return_date'].'</td>'
                                 .'</tr>';

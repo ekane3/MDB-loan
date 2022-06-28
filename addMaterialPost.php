@@ -1,5 +1,5 @@
 <?php 
-
+session_start();
 $id = $_POST['id'];
 $codebarre = $_POST['codebarre'];
 $materiel_name = $_POST['materiel_name'];

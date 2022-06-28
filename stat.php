@@ -215,12 +215,99 @@
             </div>
         </div>
 
-        </div>
+        
 
-     
+    </div>
+
+<?php     
+    $reqRetourCount = $bdd->query('SELECT COUNT(*) FROM borrow
+                                    INNER JOIN users ON users.id = '.$_SESSION['id'].'
+                                    INNER JOIN material ON material.id = id_material
+                                    WHERE rendu = 0 ;');
+    $nbreretour = $reqRetourCount->fetchColumn();
+
+    if($nbreretour > 0)
+    {
+
+?>    
         <!-- Main Container -->
+<div class="container mt-3">
+    <h2 class="mt-3">Retourner du matériel</h2>
+    <div class="row">
+					<!-- Grid column -->
+					<?php
+                            $requete = $bdd->query('SELECT id_material,borrowed_date,return_date,name,rendu,codebarre, material.name as material_name, description 
+                                                    FROM borrow
+                                                    INNER JOIN users ON users.id = '.$_SESSION['id'].'
+                                                    INNER JOIN material ON material.id = id_material
+                                                    WHERE rendu = 0 ;');
+                            
+                            while($data = $requete->fetch()){
+                                echo '<div class="col-lg-3 col-md-6 mb-4">
+								<!-- Card -->
+								<div class="card h-100">
+									<!-- Card image -->
+									<img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Lightbox/Thumbnail/img%20(97).jpg"
+									alt="Card image cap">
 
+									<!-- Card content -->
+									<div class="card-body">
+										<!-- Title -->
+										<h4 class="card-title"><strong>'.$data['material_name'].'</strong></h4>
+										<!-- Text -->
+										<p class="card-text">'.$data['description'].'</p>
+                                        <input type="hidden" id="id_mat" class="form-control form-control-sm" name="codebarre" value="'.$data["id_material"].'">
+										<p class="card-text font-weight-bold" id="idCard">'.$data['codebarre'].'</p>
+										<button class="btn btn-purple btn-rounded" data-toggle="modal" data-target="#returnEquip">Retourner</button>
+									</div>
+								</div>
+								<!-- Card -->
+							</div>';
+                            }    
+                    ?>
+					 <!--Supprimer modal-->
+                     <div class="modal fade" id="returnEquip" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"aria-hidden="true">
+                            <div class="modal-dialog modal-notify modal-danger" role="document">
+                                <!-- Content -->
+                                <div class="modal-content">
+                                    <!-- Header -->
+                                    <div class="modal-header">
+                                        <p class="heading lead">Modal Success</p>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true" class="white-text">&times;</span>
+                                        </button>
+                                    </div>
 
+                                    <!-- Body -->
+                                    <form action="returnMaterielPost.php" method="post">
+                                    <div class="modal-body">
+                                        <div class="text-center">
+                                        <input type="hidden" id="id_materialpost" class="form-control form-control-sm" name="id_material">
+                                        <i class="fas fa-angle-double-right fa-4x mb-3 animated rotateIn"></i>
+                                        <p>
+                                            Vous voulez vous vraiment retourner cet équipement ?
+                                        </p>
+                                        </div>
+                                    </div>
+                                   
+                                    <!-- Footer -->
+                                    <div class="modal-footer justify-content-center">
+                                        <a type="button" class="btn btn-outline-danger waves-effect" data-dismiss="modal">Non merci<i class="far fa-gem ml-1"></i></a>
+                                        <button type="submit" class="btn btn-danger" name="returnEqui">Retourner </button>
+                                    </div>
+                                    </form>
+                                </div>
+                                <!-- Content -->
+                            </div>
+                        </div>
+
+                        <!--/ Supprimer modal-->
+	</div>
+</div>
+<?php 
+
+    }
+?>
 
 <!-- SCRIPTS -->
   <!-- JQuery -->
@@ -242,12 +329,23 @@
 
         // Material Select Initialization
         $(document).ready(function () {
-        $('.mdb-select').material_select();
+        //$('.mdb-select').material_select();
         });
 
         // SideNav Initialization
         $(".button-collapse").sideNav();
 
+        $(document).ready(function(){
+            
+            // delete button
+            $(document).on("click","#returnEquip", function() {
+           // $('#delete').click( function(){
+                
+                var data = $('#id_mat').val();
+                console.log(data);
+                $('#id_materialpost').val(data);
+            });
+        });
     </script>
 
 </body>
