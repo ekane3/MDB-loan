@@ -1,26 +1,13 @@
-Material Design for Bootstrap
+Projet de Gestion matériel
 
-version: MDB E-commerce 4.8.11
+Collaborateurs :
+Emile EKANE & Aicha NZEKET
 
-Documentation:
-https://mdbootstrap.com/
+SGBD:
+MySql
 
-Getting started:
-https://mdbootstrap.com/docs/jquery/getting-started/download/
+FrontEnd :
+Material Design For Bootstrap
 
-Tutorials:
-MDB-Bootstrap: https://mdbootstrap.com/education/bootstrap/
-MDB-Wordpress: https://mdbootstrap.com/education/wordpress/
-
-Templates:
-https://mdbootstrap.com/templates/
-
-License:
-https://mdbootstrap.com/general/license/
-
-Support:
-https://mdbootstrap.com/forums/forum/support/
-
-Contact:
-office@mdbootstrap.com
-
+Backend:
+PHP
