@@ -31,7 +31,13 @@ try{
       $_SESSION['password'] =$data['password'] ;
       $_SESSION['id'] = $data['id'];
         //$_SESSION['statut'] = ("admin") ? header("Location: accueil.php"); : header("Location: accueilEtudiant.php"); ;
-      header("Location: stat.php");
+     
+      if( $_SESSION['type'] == "etudiant"){
+        header("Location: stat.php");
+      }else{
+        header("Location: admin_stat.php");
+      }
+        
       $return = "vous etes bien connecté !";  
     }
     else{

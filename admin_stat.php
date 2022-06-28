@@ -18,6 +18,10 @@
                             WHERE rendu = 0;');
     $nbrenonrendu = $reqnonrendu->fetchColumn();
 
+    // Compte du nbre etudiant
+    $reqnbreteudiant = $bdd->query('SELECT COUNT(*) FROM users WHERE type = "etudiant";');
+    $nbretudiant = $reqnbreteudiant->fetchColumn();
+
 
 ?>
 
@@ -99,7 +103,24 @@
             <!-- Second column -->
 
             <!-- Third column -->
-            <div class="col-xl-3 col-md-6 mb-md-0 mb-4"> </div>
+            <div class="col-xl-3 col-md-6 mb-md-0 mb-4"> 
+                <!-- Card -->
+                <div class="card card-cascade cascading-admin-card">
+
+                    <!-- Card Data -->
+                    <div class="admin-up text-center  my-4">
+                        <i class="fas fa-chart-line warning-color mr-3 z-depth-2 MT62"></i>
+                        <div class="data">
+                        <p class="text-uppercase">Nbre étudiants</p>
+                        <h4 class="font-weight-bold ">
+                            <?=$nbretudiant?>
+                        </h4>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- Card -->
+            </div>
             <!-- Third column -->
 
             <!-- Fourth column -->

@@ -38,12 +38,18 @@
 				<li>
 					<a href="<?php echo $href_var;?>" class="collapsible-header waves-effect"><i class="fas fa-barcode"></i> Dashboard </a>
 				</li>
+				<?php
+					if($_SESSION['type'] == "admin"){
+				?>
 				<li>
 					<a href="materiels.php" class="collapsible-header waves-effect"><i class="fas fa-tools"></i> Matériel </a>
 				</li>
 				<li>
 					<a href="users.php" class="collapsible-header waves-effect"><i class="fas fa-users"></i> Utilisateurs </a>
 				</li>
+				<?php
+					}
+				?> 
 				<?php
 					if($_SESSION['type'] == "etudiant"){
 				?>
